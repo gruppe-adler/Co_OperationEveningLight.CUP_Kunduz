@@ -59,3 +59,7 @@ if (_camShake isNotEqualTo [0,0,0]) then {
     [_PS],
     _showerTime
 ] call CBA_fnc_waitAndExecute;
+
+if (player distance _pos < 50) then {
+    [2] spawn BIS_fnc_earthquake;
+};
