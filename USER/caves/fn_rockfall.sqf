@@ -16,31 +16,29 @@ private _firstRock = _rocks#0;
 
 [getPos _firstRock, _firstRock, 3, 2] remoteExec ["GRAD_caves_fnc_rockshower", 0];
 
-sleep 3;
+_firstRock setVariable ["EL_rockDropped", true, true];
 
-{
+[{
 
-    private _rock = _x;
-    private _vecDir = vectorDir _rock;
-    private _vecUp = vectorUp _rock;
-    private _pos = getPosASL _rock;
+    params ["_firstRock", "_rocks"];
 
-    private _pen = "Land_PencilRed_F" createVehicle [0,0,0];
-    // hideObject _pen;
-    _pen setPosASL [_pos#0, _pos#1, (_pos#2) - 1];
-    _rock attachTo [_pen, [0,0,_forEachIndex]];
+    {
 
-} forEach _rocks;
+        private _rock = _x;
+        private _vecDir = vectorDir _rock;
+        private _vecUp = vectorUp _rock;
+        private _pos = getPosASL _rock;
+
+        private _pen = "Land_PencilRed_F" createVehicle [0,0,0];
+        // hideObject _pen;
+        _pen setPosASL [_pos#0, _pos#1, (_pos#2) - 1];
+        _rock attachTo [_pen, [0,0,_forEachIndex]];
+
+    } forEach _rocks;
+
+}, [_firstRock, _rocks], 3] call CBA_fnc_waitAndExecute;
 
 
-
-_firstRock addEventHandler ["Explosion", {
-    params ["_vehicle", "_damage", "_source"];
-
-    systemChat "Explosion";
-
-    _vehicle removeEventHandler _this;
-}];
 
 /*
 [

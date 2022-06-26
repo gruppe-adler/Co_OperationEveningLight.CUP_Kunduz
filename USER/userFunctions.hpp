@@ -5,3 +5,4 @@
 
 #include "commandvehicle\cfgFunctions.hpp"
 #include "caves\cfgFunctions.hpp"
+#include "captive\cfgFunctions.hpp"
