@@ -4,3 +4,4 @@
 */
 
 #include "commandvehicle\cfgFunctions.hpp"
+#include "caves\cfgFunctions.hpp"

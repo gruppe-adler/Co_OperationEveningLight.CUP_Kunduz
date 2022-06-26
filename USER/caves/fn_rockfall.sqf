@@ -37,7 +37,9 @@ sleep 3;
 _firstRock addEventHandler ["Explosion", {
     params ["_vehicle", "_damage", "_source"];
 
+    systemChat "Explosion";
 
+    _vehicle removeEventHandler _this;
 }];
 
 /*
