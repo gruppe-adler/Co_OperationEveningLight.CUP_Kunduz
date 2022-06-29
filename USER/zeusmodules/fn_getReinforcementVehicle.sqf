@@ -72,7 +72,7 @@ private _classname = switch (_type) do {
         };
     };
 
-    default {}; 
+    default {"UK3CB_TKC_C_Lada"}; 
 };
 
 _classname
