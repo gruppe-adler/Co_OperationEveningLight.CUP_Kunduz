@@ -20,6 +20,8 @@
               _x setSkill ["commanding", 1];
               _x setSkill ["general", 1];
 
+              _x addGoggles "CUP_Beard_Black";
+
               _x addCuratorEditableObjects [[_object], true];
           } forEach units _group;
       }];

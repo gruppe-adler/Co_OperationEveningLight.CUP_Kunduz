@@ -10,7 +10,7 @@ _heli setDir 333;
 _heli setCaptive true;
 _heli flyInHeight 40;
 (driver _heli) doMove [3571.52,5127.56, 50];
-_heli setSpeedMode "FULL";
+_heli setSpeedMode "LIMITED";
 
 
 [_heli, _duration] remoteExec ["grad_intro_fnc_intro", 0, true];

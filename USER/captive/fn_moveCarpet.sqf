@@ -17,7 +17,7 @@ _carpet addAction
     true,       // showWindow
     true,       // hideOnUse
     "",         // shortcut
-    "!_target getVariable ['EL_rugMoved', false]",     // condition
+    "!(_target getVariable ['EL_rugMoved', false])",     // condition
     2.5,         // radius
     false,      // unconscious
     "",         // selection

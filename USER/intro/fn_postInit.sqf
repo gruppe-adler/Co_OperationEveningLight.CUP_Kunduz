@@ -1,5 +1,5 @@
 
-if (isServer) then {
+if (isServer && isMultiplayer) then {
 
     [{
         
@@ -10,6 +10,6 @@ if (isServer) then {
 };
 
 
-if (hasInterface) then {
+if (hasInterface && isMultiplayer) then {
     "introBlackLoading" cutText ["", "BLACK", 999999];
 };
