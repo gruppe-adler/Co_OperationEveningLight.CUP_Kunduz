@@ -7,7 +7,7 @@ _carpet addAction
     {
         params ["_target", "_caller", "_actionId", "_arguments"]; // script
 
-        _target setPos (_target getPos [1, [random 360]);
+        _target setPos (_target getPos [1, [random 360]]);
         systemChat "nothing";
 
         _target setVariable ["EL_rugMoved", true, true];
@@ -21,5 +21,5 @@ _carpet addAction
     2.5,         // radius
     false,      // unconscious
     "",         // selection
-    "door_3"          // memoryPoint
+    ""          // memoryPoint
 ];
