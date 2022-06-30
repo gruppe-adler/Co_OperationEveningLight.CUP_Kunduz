@@ -11,5 +11,5 @@ if (isServer && isMultiplayer) then {
 
 
 if (hasInterface && isMultiplayer) then {
-    "introBlackLoading" cutText ["", "BLACK", 999999];
+    "introBlackLoading" cutText ["", "BLACK FADED", 999999];
 };

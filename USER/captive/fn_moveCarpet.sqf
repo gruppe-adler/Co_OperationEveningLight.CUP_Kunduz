@@ -1,25 +1,13 @@
 params ["_carpet"];
 
+if (isServer) then {
+    private _helper = "Land_PenBlack_F" createVehicle [0,0,0];
 
-_carpet addAction
-[
-    "Move Rug",    // title
-    {
-        params ["_target", "_caller", "_actionId", "_arguments"]; // script
+    _helper attachTo [_carpet, [0,0,0]];
 
-        _target setPos (_target getPos [1, [random 360]]);
-        systemChat "nothing";
+    _helper setVariable ["EL_rug", _carpet, true];
 
-        _target setVariable ["EL_rugMoved", true, true];
-    },
-    nil,        // arguments
-    1.5,        // priority
-    true,       // showWindow
-    true,       // hideOnUse
-    "",         // shortcut
-    "!(_target getVariable ['EL_rugMoved', false])",     // condition
-    2.5,         // radius
-    false,      // unconscious
-    "",         // selection
-    ""          // memoryPoint
-];
+    [_helper] remoteExec ["grad_captive_fnc_moveCarpetAction", 0, true];
+
+};
+

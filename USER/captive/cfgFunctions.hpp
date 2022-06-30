@@ -6,6 +6,7 @@ class grad_captive {
         class doorAction;
         class moveCarpet;
         class yellStuff;
+        class moveCarpetAction;
 
     };
 };

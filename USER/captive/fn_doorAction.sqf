@@ -14,6 +14,8 @@ _house addAction
     {
         params ["_target", "_caller", "_actionId", "_arguments"]; // script
 
+        _target setVariable ["bis_disabled_Door_2", 0, true];
+        _target setVariable ["bis_disabled_Door_3", 0, true];
         _target animateSource ["Door_3_source", 1];
     },
     nil,        // arguments
@@ -22,7 +24,7 @@ _house addAction
     true,       // hideOnUse
     "",         // shortcut
     "(_target animationPhase 'Door_3_source') == 0",     // condition
-    2.5,         // radius
+    3,         // radius
     false,      // unconscious
     "",         // selection
     "door_3"          // memoryPoint
