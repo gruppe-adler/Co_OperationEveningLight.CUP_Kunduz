@@ -16,6 +16,7 @@ _house addAction
 
         _target setVariable ["bis_disabled_Door_2", 0, true];
         _target setVariable ["bis_disabled_Door_3", 0, true];
+        _target animateSource ["Door_2_source", 1];
         _target animateSource ["Door_3_source", 1];
     },
     nil,        // arguments
@@ -23,11 +24,11 @@ _house addAction
     true,       // showWindow
     true,       // hideOnUse
     "",         // shortcut
-    "(_target animationPhase 'Door_3_source') == 0",     // condition
+    "(_target animationPhase 'Door_2_source') == 0",     // condition
     3,         // radius
     false,      // unconscious
-    "",         // selection
-    "door_3"          // memoryPoint
+    "door_2",         // selection
+    ""          // memoryPoint
 ];
 
 

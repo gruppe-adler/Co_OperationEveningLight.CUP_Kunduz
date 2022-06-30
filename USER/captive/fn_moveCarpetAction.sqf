@@ -8,7 +8,7 @@ _helper addAction
 
         private _rug = _target getVariable ["EL_rug", objNull];
 
-        _target setPos (_target getPos [1, [random 360]]);
+        _rug setPos (_rug getPos [1, random 360]);
         systemChat "nothing";
 
         _target setVariable ["EL_rugMoved", true, true];
@@ -16,7 +16,7 @@ _helper addAction
     nil,        // arguments
     1.5,        // priority
     true,       // showWindow
-    true,       // hideOnUse
+    false,       // hideOnUse
     "",         // shortcut
     "!(_target getVariable ['EL_rugMoved', false])",     // condition
     3,         // radius
