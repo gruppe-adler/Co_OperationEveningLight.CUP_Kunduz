@@ -10254,6 +10254,7 @@ class Mission
 							flags=5;
 							class Attributes
 							{
+								rank="CORPORAL";
 								description="JTAC";
 								isPlayable=1;
 							};
@@ -31594,7 +31595,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				pylons="rhs_mag_Sidewinder_heli_2[0];rhs_mag_M151_19_green;rhs_mag_M151_19_green[0];rhs_mag_M151_19_green[0];rhs_mag_M151_19_green;rhs_mag_Sidewinder_heli_2[0];rhsusf_ANALE39_CMFlare_Chaff_Magazine_x4;";
+				pylons="rhs_mag_Sidewinder_heli_2;rhs_mag_M229_7_green;PylonRack_4Rnd_ACE_Hellfire_AGM114K[0];PylonRack_4Rnd_ACE_Hellfire_AGM114K[0];rhs_mag_M229_7_green;rhs_mag_Sidewinder_heli_2;rhsusf_ANALE39_CMFlare_Chaff_Magazine_x4;";
 			};
 			id=5044;
 			type="RHS_AH1Z";
