@@ -3,12 +3,21 @@ if (isServer) then {
     ["ace_explosives_detonate", {
         params ["_unit", "_item1", "_item2"];
 
+
+        diag_log format ["explosive detonation %1 - %2", _item1, getPos _item1];
+
         // falling rock handling
-        private _rock = missionNamespace getVariable ["fallingRock1", objNull];
-        if (!isNull _rock) then {
-            if (!(_rock getVariable ["EL_rockDropped", false])) then {
-                if (_item1 distance _rock < 10) then {
+        if (!isNull (missionNamespace getVariable ["fallingRock1", objNull])) then {
+            // systemChat str (missionNamespace getVariable ["fallingRock1", objNull]);
+            if ((missionNamespace getVariable ["fallingRock1", objNull]) getVariable ["EL_rockDropped", false]) then {
+                private _distance = _item1 distance (missionNamespace getVariable ["fallingRock1", objNull]);
+                diag_log "rock dropped " + (str _distance) + " m distance";
+                // systemChat "rock dropped " + (str _distance) + " m distance";
+
+                if (_distance < 10) then {
                     call grad_caves_fnc_rockDestruction;
+                    diag_log "destroying rocks";
+                    // systemChat "destroying rocks";
                 };
             };
         };

@@ -21,6 +21,13 @@ setApertureNew [2.6, 5, 10, 1];
 
 
 if (hasInterface) then {
+
+
+    if (!weaponLowered player) then {
+        player action ["WeaponOnBack", player];
+    };
+
+
     ["ace_unconscious", {
         params ["_unit", "_state"];
 

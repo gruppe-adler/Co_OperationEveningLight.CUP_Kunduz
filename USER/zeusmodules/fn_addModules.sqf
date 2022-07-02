@@ -105,3 +105,21 @@
      ["heavy", false, "north"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
      
 }] call zen_custom_modules_fnc_register;
+
+
+
+["Evening Light - Captive", "Start Screaming", {
+     params ["_position", "_object"];
+     
+     call grad_captive_fnc_yellStuff;
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Captive", "Stop Screaming", {
+     params ["_position", "_object"];
+     
+     if (!isNull captive_compound2) then {
+          captive_compound2 setVariable ['EL_yelling', true, true];
+     };
+     
+}] call zen_custom_modules_fnc_register;

@@ -27,7 +27,7 @@ _source03 setParticleParams [
     /*1*/  "",
     /*2*/  "SpaceObject",
     /*3*/  1,
-    /*4*/  _lifetime,
+    /*4*/  1.5,
     /*5*/  [0, 0, 0],
     /*6*/  [0, 0, 0],
     /*7*/  1,
@@ -41,18 +41,20 @@ _source03 setParticleParams [
     /*15*/ 0,
     /*16*/ "",
     /*17*/ "",
-    /*18*/ _obj,
+    /*18*/ _source03,
     /*19*/ 0,
     /*20*/ true,
     /*21*/ 0.1
 ];
-_source03 setDropInterval _dropInterval;
+_source03 setDropInterval 0.04;
 
 [
     {
-        params ["_source"];
-        deleteVehicle _source;
+        params ["_source01", "_source02", "_source03"];
+        deleteVehicle _source01;
+        deleteVehicle _source02;
+        deleteVehicle _source03;
     },
-    [_source03],
+    [_source01, _source02, _source03],
     2
 ] call CBA_fnc_waitAndExecute;
