@@ -6,5 +6,6 @@ class grad_zeusmodules {
         class getReinforcementVehicle;
         class getReinforcementUnits;
         class reinforcements;
+        class curatorShowFeedbackMessage;
     };
 };
