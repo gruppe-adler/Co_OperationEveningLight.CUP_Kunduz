@@ -21,9 +21,9 @@
               _x setSkill ["general", 1];
 
               _x addGoggles "CUP_Beard_Black";
-
-              _x addCuratorEditableObjects [[_object], true];
           } forEach units _group;
+
+          ["GRAD_missionControl_setServerAsOwner", [_group]] call CBA_fnc_serverEvent;
       }];
 
       _curator addEventHandler ["CuratorObjectPlaced", {
@@ -40,7 +40,15 @@
           _object setSkill ["commanding", 1];
           _object setSkill ["general", 1];
 
-          _curator addCuratorEditableObjects [[_object], true];
+          if (_object isKindOf "CAManBase") then {
+             if (count units _object == 1) then {
+                 ["GRAD_missionControl_setServerAsOwner", [group _object]] call CBA_fnc_serverEvent;
+             };
+          } else {
+             if (count crew _object > 1) then {
+                 ["GRAD_missionControl_setServerAsOwner", [group (crew _object select 0)]] call CBA_fnc_serverEvent;
+             };
+         };
 
       }];
 
@@ -123,3 +131,34 @@
      };
      
 }] call zen_custom_modules_fnc_register;
+
+
+
+     ["Evening Light - Ambient", "Music Radio",
+    {
+      // Get all the passed parameters
+      params ["_position", "_object"];
+      _position = ASLToAGL _position;
+
+      private _radio = (selectRandom ["land_gm_euro_furniture_radio_01", "jbad_radio_b", "Land_FMradio_F"]) createVehicle [0,0,0];
+      _radio setPos _position;
+
+      private _source = createSoundSource [selectRandom ["music1", "music2", "arabicmusic1", "arabicmusic2"], _position, [], 0];
+      [_source, _radio, false] call grad_ambient_fnc_soundSourceHelper;
+      
+      {
+        _x addCuratorEditableObjects [[_radio], false];
+      } forEach allCurators;
+
+    }] call zen_custom_modules_fnc_register;
+
+
+
+["Evening Light - Ambient", "Suicide Car Spawn",
+    {
+      params ["_position", "_object"];
+      _position = ASLToAGL _position;
+
+      [_position] remoteExec ["grad_ambient_fnc_suicideCar", 2];
+
+    }] call zen_custom_modules_fnc_register;

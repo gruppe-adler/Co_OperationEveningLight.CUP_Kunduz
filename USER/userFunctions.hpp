@@ -8,3 +8,4 @@
 #include "captive\cfgFunctions.hpp"
 #include "intro\cfgFunctions.hpp"
 #include "zeusmodules\cfgFunctions.hpp"
+#include "ambient\cfgFunctions.hpp"

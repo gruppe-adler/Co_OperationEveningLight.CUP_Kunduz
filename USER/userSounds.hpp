@@ -118,3 +118,12 @@ class rocksFalling_4
     // subtitle delay in seconds, subtitle text
     titles[] = {  };
 };
+
+
+
+class buzz
+{
+    name = "buzz";
+    sound[] = {"USER\sounds\buzz.ogg", 1, 1, 50};
+    titles[] = {0,""};
+};
