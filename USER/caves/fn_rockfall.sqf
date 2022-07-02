@@ -14,7 +14,17 @@ private _rocks = [
 
 private _firstRock = _rocks#0;
 
-[getPos _firstRock, _firstRock, 3, 2] remoteExec ["GRAD_caves_fnc_rockshower", 0];
+private _arrayOfSpawns = [
+    debris0,
+    debris1,
+    debris2,
+    debris3,
+    debris4,
+    debris5,
+    debris6
+];
+
+[getPos _firstRock, _firstRock, 7, 7, [0,0,0], 0.03, _arrayOfSpawns] remoteExec ["GRAD_caves_fnc_rockshower", 0];
 
 _firstRock setVariable ["EL_rockDropped", true, true];
 
@@ -36,7 +46,7 @@ _firstRock setVariable ["EL_rockDropped", true, true];
 
     } forEach _rocks;
 
-}, [_firstRock, _rocks], 3] call CBA_fnc_waitAndExecute;
+}, [_firstRock, _rocks], 5] call CBA_fnc_waitAndExecute;
 
 
 
