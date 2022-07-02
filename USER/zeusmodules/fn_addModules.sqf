@@ -142,8 +142,9 @@
 
       private _radio = (selectRandom ["land_gm_euro_furniture_radio_01", "jbad_radio_b", "Land_FMradio_F"]) createVehicle [0,0,0];
       _radio setPos _position;
+      _radio setDir (random 360);
 
-      private _source = createSoundSource [selectRandom ["music1", "music2", "arabicmusic1", "arabicmusic2"], _position, [], 0];
+      private _source = createSoundSource [(selectRandom ["music1", "music2", "arabicmusic1", "arabicmusic2"]), _position, [], 0];
       [_source, _radio, false] call grad_ambient_fnc_soundSourceHelper;
       
       {

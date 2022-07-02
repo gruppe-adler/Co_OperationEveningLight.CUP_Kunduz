@@ -12,9 +12,9 @@ _explosion2 setVelocity [0,0,-100];
 
 _position set [2,3];
 
-[_position] remoteExecCall ["homecoming_fnc_suicideCarShockwave", 0];
+[_position] remoteExecCall ["grad_ambient_fnc_suicideCarShockwave", 0];
 
-// [_car, "shards_burning", true] remoteExecCall ["homecoming_fnc_createSmoke", 0];
+// [_car, "shards_burning", true] remoteExecCall ["grad_ambient_fnc_createSmoke", 0];
 
 // spawn clutter for lolz
 for "_i" from 1 to 4 do {
