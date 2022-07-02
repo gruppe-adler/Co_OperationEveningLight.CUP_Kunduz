@@ -11,5 +11,6 @@ class grad_ambient{
            class brokenRadio;
            class createMusicCarrier;
            class soundSourceHelper;
+           class createMosqueSinger;
         };
 };

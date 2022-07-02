@@ -36,7 +36,7 @@ class CfgSFX
     {
         name = "prayer2";
         sounds[]={sfxsound};
-        sfxsound[]={"USER\sounds\prayer2.ogg",35,1,150,1,1,1,0};
+        sfxsound[]={"USER\sounds\prayer2.ogg",100,1,500,1,1,1,0};
         empty[]= {"",0,0,0,0,0,0,0};
     };    
 

@@ -9,8 +9,8 @@ _radio setVectorDirAndUp [[1,0,0],[0,0,1]];
 private _music = selectRandom [
     "music1",
     "music2",
-    "arabicmusic1",
-    "arabicmusic2"
+    "arabicsong1",
+    "arabicsong2"
 
 ];
 

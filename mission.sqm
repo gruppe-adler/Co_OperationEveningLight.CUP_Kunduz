@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=5227;
+		nextID=5247;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2836.613,41.269764,2836.3831};
-		dir[]={-0.89580876,-0.35718101,0.26447794};
-		up[]={-0.34256294,0.93403512,0.10113805};
-		aside[]={0.28315628,-7.4505806e-009,0.95907378};
+		pos[]={2667.8662,66.838577,2278.3364};
+		dir[]={-0.048443858,-0.78523588,0.61729884};
+		up[]={-0.061434194,0.61919671,0.78282905};
+		aside[]={0.99693489,0,0.07823661};
 	};
 };
 binarizationWanted=0;
@@ -148,13 +148,16 @@ addons[]=
 	"A3_Structures_F_EPA_Items_Food",
 	"A3_Props_F_Exp_Civilian_Garbage",
 	"A3_Structures_F_Enoch_Military_Training",
-	"A3_Data_F_ParticleEffects"
+	"A3_Data_F_ParticleEffects",
+	"Jbad_A_Minaret",
+	"CUP_CAStructures_E_HouseA_A_Mosque_small",
+	"Jbad_Minaret_Porto"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=87;
+		items=90;
 		class Item0
 		{
 			className="A3_Modules_F_Heli";
@@ -719,6 +722,21 @@ class AddonsMetaData
 			name="Arma 3 - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
+		};
+		class Item87
+		{
+			className="Jbad_A_Minaret";
+			name="Jbad_A_Minaret";
+		};
+		class Item88
+		{
+			className="CUP_CAStructures_E_HouseA_A_Mosque_small";
+			name="CUP_CAStructures_E_HouseA_A_Mosque_small";
+		};
+		class Item89
+		{
+			className="Jbad_Minaret_Porto";
+			name="Jbad_Minaret_Porto";
 		};
 	};
 };
@@ -8904,7 +8922,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=291;
+		items=295;
 		class Item0
 		{
 			dataType="Layer";
@@ -33732,6 +33750,72 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item291
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3737.6021,22.268328,2842.0986};
+				angles[]={0,5.9588652,-0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=5227;
+			type="Jbad_A_Minaret";
+			atlOffset=4.7683716e-007;
+		};
+		class Item292
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3731.3569,10.739443,2836.0334};
+				angles[]={6.2791886,5.5369978,6.2791886};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=5228;
+			type="Land_A_Mosque_small_2_dam_EP1";
+			atlOffset=-4.7683716e-007;
+		};
+		class Item293
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2655.2366,27.114975,2327.7126};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=5245;
+			type="Jbad_A_Minaret_porto";
+			atlOffset=9.5367432e-007;
+		};
+		class Item294
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2635.3516,8.8859968,2349.1038};
+				angles[]={6.2432065,6.095294,6.2671871};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=5246;
+			type="Land_A_Mosque_small_1_EP1";
 		};
 	};
 	class Connections

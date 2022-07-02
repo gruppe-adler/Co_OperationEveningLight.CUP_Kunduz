@@ -134,7 +134,7 @@
 
 
 
-     ["Evening Light - Ambient", "Music Radio",
+["Evening Light - Ambient", "Music Radio",
     {
       // Get all the passed parameters
       params ["_position", "_object"];
@@ -144,7 +144,7 @@
       _radio setPos _position;
       _radio setDir (random 360);
 
-      private _source = createSoundSource [(selectRandom ["music1", "music2", "arabicmusic1", "arabicmusic2"]), _position, [], 0];
+      private _source = createSoundSource [(selectRandom ["music1", "music2", "arabicsong1", "arabicsong2"]), _position, [], 0];
       [_source, _radio, false] call grad_ambient_fnc_soundSourceHelper;
       
       {
@@ -152,7 +152,6 @@
       } forEach allCurators;
 
     }] call zen_custom_modules_fnc_register;
-
 
 
 ["Evening Light - Ambient", "Suicide Car Spawn",
@@ -163,3 +162,15 @@
       [_position] remoteExec ["grad_ambient_fnc_suicideCar", 2];
 
     }] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - Ambient", "Create Mosque Singer",
+    {
+      params ["_position", "_object"];
+      _position = ASLToAGL _position;
+
+      [_position] remoteExec ["grad_ambient_fnc_createMosqueSinger", 2];
+
+    }] call zen_custom_modules_fnc_register;
+
+    
