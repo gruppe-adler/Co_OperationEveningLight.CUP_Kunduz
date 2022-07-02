@@ -24,6 +24,34 @@ _vehicle addMagazineCargoGlobal ["SmokeShellGreen", 10];
 _vehicle addMagazineCargoGlobal ["SmokeShellRed", 10];
 
 
-_vehicle addMagazineCargoGlobal ["1Rnd_Smoke_Grenade_shell", 10];
-_vehicle addMagazineCargoGlobal ["1Rnd_SmokeBlue_Grenade_shell", 10];
-_vehicle addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell", 10];
+_vehicle addMagazineCargoGlobal ["1Rnd_Smoke_Grenade_shell", 20];
+_vehicle addMagazineCargoGlobal ["1Rnd_SmokeGreen_Grenade_shell", 20];
+_vehicle addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell", 20];
+
+_vehicle addMagazineCargoGlobal ["ACE_40mm_Flare_red", 20];
+_vehicle addMagazineCargoGlobal ["ACE_40mm_Flare_green", 20];
+_vehicle addMagazineCargoGlobal ["ACE_40mm_Flare_white", 20];
+_vehicle addMagazineCargoGlobal ["rhs_mag_M664_red_cluster", 20];
+
+_vehicle addMagazineCargoGlobal ["ACE_Chemlight_HiRed", 20];
+_vehicle addMagazineCargoGlobal ["ACE_Chemlight_HiGreen", 20];
+_vehicle addMagazineCargoGlobal ["ACE_Chemlight_HiWhite", 20];
+_vehicle addMagazineCargoGlobal ["ACE_Chemlight_HiYellow", 20];
+_vehicle addMagazineCargoGlobal ["ACE_Chemlight_HiBlue", 20];
+
+
+
+_vehicle addWeaponCargoGlobal ["rhs_weap_M136", 2];
+
+_vehicle addItemCargoGlobal ["ACE_entrenchingTool", 2];
+_vehicle addItemCargoGlobal ["grad_axe", 2];
+_vehicle addItemCargoGlobal ["ace_cabletie", 5];
+_vehicle addItemCargoGlobal ["ace_bodybag", 5];
+
+_vehicle addItemCargoGlobal ["ace_marker_flags_blue", 20];
+_vehicle addItemCargoGlobal ["ace_marker_flags_green", 20];
+_vehicle addItemCargoGlobal ["ace_marker_flags_yellow", 20];
+_vehicle addItemCargoGlobal ["ace_marker_flags_red", 20];
+_vehicle addItemCargoGlobal ["ace_marker_flags_white", 20];
+
+

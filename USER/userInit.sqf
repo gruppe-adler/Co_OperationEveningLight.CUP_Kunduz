@@ -6,6 +6,8 @@
 setApertureNew [2.6, 5, 10, 1];
 
 
+
+
 ["CAManBase", "init", {
     
     private _unit = (_this select 0);
@@ -37,6 +39,20 @@ if (hasInterface) then {
 
 
 if (isServer) then {
+
+
+    [{
+        dayTime > 19.5
+    },{
+        setTimeMultiplier 6;
+    }] call CBA_fnc_waitUntilAndExecute;
+
+    [{
+        dayTime > 23.5
+    },{
+        setTimeMultiplier 1;
+    }] call CBA_fnc_waitUntilAndExecute;
+
 
     ["missionControl_curatorInfo", {
         params ["_unit", "_type"];
