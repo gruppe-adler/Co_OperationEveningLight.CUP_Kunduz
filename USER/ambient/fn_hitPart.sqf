@@ -9,6 +9,6 @@ _helper addEventHandler ["HitPart", {
 
   [_target] remoteExecCall ["grad_ambient_fnc_brokenRadio", 0];
 
-  _target removeEventHandler _thisEventhandler; // removes once per shooter, not critical to have them all deleted at once
+  _target removeEventHandler ["HitPart", _thisEventhandler]; // removes once per shooter, not critical to have them all deleted at once
 
 }];

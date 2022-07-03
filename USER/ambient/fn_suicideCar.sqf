@@ -2,7 +2,7 @@ params ["_position"];
 
 _position set [2,0];
 
-private _type = selectRandom ["UK3CB_TKC_C_Datsun_Civ_Open", "UK3CB_TKM_O_Hilux_Open"];
+private _type = "CUP_O_Hilux_armored_unarmed_TK_INS";
 private _car = _type createVehicle [0,0,0];
 private _driver = (createGroup east) createUnit ["UK3CB_TKM_O_ENG", [0,0,0], [], 0, "NONE"];
 _driver moveInDriver _car;
