@@ -114,6 +114,198 @@
      
 }] call zen_custom_modules_fnc_register;
 
+//////////////
+
+["Evening Light - Enemies Cloaked", "Reinforcements northwest Squad", {
+     params ["_position", "_object"];
+     
+     ["squad", true, "northwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements northwest Squad", {
+     params ["_position", "_object"];
+     
+     ["squad", false, "northwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - Enemies Cloaked", "Reinforcements northwest Fireteam", {
+     params ["_position", "_object"];
+     
+     ["fireteam", true, "northwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements northwest Fireteam", {
+     params ["_position", "_object"];
+     
+     ["fireteam", false, "northwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - Enemies Cloaked", "Reinforcements northwest specialteam", {
+     params ["_position", "_object"];
+     
+     ["specialteam", true, "northwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements northwest specialteam", {
+     params ["_position", "_object"];
+     
+     ["specialteam", false, "northwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - Enemies Cloaked", "Reinforcements northwest heavy", {
+     params ["_position", "_object"];
+     
+     ["heavy", true, "northwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements northwest heavy", {
+     params ["_position", "_object"];
+     
+     ["heavy", false, "northwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+///////
+
+["Evening Light - Enemies Cloaked", "Reinforcements southwest Squad", {
+     params ["_position", "_object"];
+     
+     ["squad", true, "southwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements southwest Squad", {
+     params ["_position", "_object"];
+     
+     ["squad", false, "southwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - Enemies Cloaked", "Reinforcements southwest Fireteam", {
+     params ["_position", "_object"];
+     
+     ["fireteam", true, "southwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements southwest Fireteam", {
+     params ["_position", "_object"];
+     
+     ["fireteam", false, "southwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - Enemies Cloaked", "Reinforcements southwest specialteam", {
+     params ["_position", "_object"];
+     
+     ["specialteam", true, "southwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements southwest specialteam", {
+     params ["_position", "_object"];
+     
+     ["specialteam", false, "southwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - Enemies Cloaked", "Reinforcements southwest heavy", {
+     params ["_position", "_object"];
+     
+     ["heavy", true, "southwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements southwest heavy", {
+     params ["_position", "_object"];
+     
+     ["heavy", false, "southwest"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+///////
+
+["Evening Light - Enemies Cloaked", "Reinforcements south Squad", {
+     params ["_position", "_object"];
+     
+     ["squad", true, "south"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements south Squad", {
+     params ["_position", "_object"];
+     
+     ["squad", false, "south"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - Enemies Cloaked", "Reinforcements south Fireteam", {
+     params ["_position", "_object"];
+     
+     ["fireteam", true, "south"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements south Fireteam", {
+     params ["_position", "_object"];
+     
+     ["fireteam", false, "south"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - Enemies Cloaked", "Reinforcements south specialteam", {
+     params ["_position", "_object"];
+     
+     ["specialteam", true, "south"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements south specialteam", {
+     params ["_position", "_object"];
+     
+     ["specialteam", false, "south"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - Enemies Cloaked", "Reinforcements south heavy", {
+     params ["_position", "_object"];
+     
+     ["heavy", true, "south"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+["Evening Light - Enemies Open", "Reinforcements south heavy", {
+     params ["_position", "_object"];
+     
+     ["heavy", false, "north"] remoteExec ["grad_zeusmodules_fnc_reinforcements", 2];
+     
+}] call zen_custom_modules_fnc_register;
+
+///////
+
+
+
+
+
+
+
+
 
 
 ["Evening Light - Captive", "Start Screaming", {

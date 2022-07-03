@@ -2,7 +2,6 @@ params ["_heli", "_duration"];
 
 if (isNull _heli || didJIP) exitWith {
     "introBlackLoading" cutText ["", "BLACK IN", 5];
-    setApertureNew [2.6, 5, 10, 1];
 };
 diwako_dui_main_toggled_off = true;
 0 fadeSound 0; 
@@ -48,7 +47,6 @@ _lightpoint setLightAttenuation [100000, 2, 4, 4, 0, 9, 10];
     showCinemaBorder false;
     5 fadeSound 1;
      "introBlackLoading" cutText ["", "BLACK IN", 5];
-     setApertureNew [2.6, 5, 10, 1];
      diwako_dui_main_toggled_off = false;
 
      20 fadeMusic 0;

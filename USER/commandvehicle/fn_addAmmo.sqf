@@ -32,6 +32,8 @@ _vehicle addMagazineCargoGlobal ["ACE_40mm_Flare_red", 20];
 _vehicle addMagazineCargoGlobal ["ACE_40mm_Flare_green", 20];
 _vehicle addMagazineCargoGlobal ["ACE_40mm_Flare_white", 20];
 _vehicle addMagazineCargoGlobal ["rhs_mag_M664_red_cluster", 20];
+_vehicle addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell", 20];
+
 
 _vehicle addMagazineCargoGlobal ["ACE_Chemlight_HiRed", 20];
 _vehicle addMagazineCargoGlobal ["ACE_Chemlight_HiGreen", 20];

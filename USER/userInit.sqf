@@ -3,9 +3,6 @@
 *   Funktioniert wie die init.sqf.
 */
 
-setApertureNew [2.6, 5, 10, 1];
-
-
 
 if (hasInterface) then {
 
@@ -34,7 +31,7 @@ if (hasInterface) then {
 
 if (isServer) then {
 
-    
+
     ["CAManBase", "init", {
         
         private _unit = (_this select 0);
@@ -45,15 +42,23 @@ if (isServer) then {
 
         if ((side _unit) != west) then {
             [_unit] call grad_ambient_fnc_addApacheDestruction;
+            [_unit, selectRandom ["Male01PER", "Male02PER", "Male03PER"]] remoteExec ["setSpeaker", 0, true];
         };    
 
     }, true, [], true] call CBA_fnc_addClassEventHandler;
 
 
     [{
+        dayTime < 19.5
+    },{
+        setTimeMultiplier 1;
+    }] call CBA_fnc_waitUntilAndExecute;
+
+    [{
         dayTime > 19.5
     },{
         setTimeMultiplier 6;
+        setApertureNew [2.6, 5, 10, 1];
     }] call CBA_fnc_waitUntilAndExecute;
 
     [{

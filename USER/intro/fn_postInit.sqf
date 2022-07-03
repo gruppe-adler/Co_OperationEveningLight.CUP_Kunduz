@@ -10,6 +10,6 @@ if (isServer && isMultiplayer) then {
 };
 
 
-if (hasInterface && isMultiplayer) then {
+if (hasInterface && isMultiplayer && !didJIP) then {
     "introBlackLoading" cutText ["", "BLACK FADED", 999999];
 };

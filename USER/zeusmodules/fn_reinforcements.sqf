@@ -12,7 +12,7 @@ private _position = switch (_origin) do {
 };
 
 
-private _vehicle = createVehicle [_vehicleClassname, _position, [], 0, "NONE"];
+private _vehicle = createVehicle [_vehicleClassname, _position, [], 20, "NONE"];
 private _dir = _position getDir [worldSize/2, worldsize/2];
 
 _vehicle setDir _dir;

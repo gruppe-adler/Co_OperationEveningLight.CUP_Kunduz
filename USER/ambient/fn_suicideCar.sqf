@@ -43,7 +43,17 @@ _car addEventHandler ["Hit", {
     };
 }];
 
-_driver addEventHandler ["Killed", {
+
+_car addEventHandler ["Deleted", {
+  params ["_entity"];
+  {
+       detach _x;
+       deleteVehicle _x;
+    } forEach (attachedObjects _entity);
+}];
+
+
+_driver addMPEventHandler ["MPKilled", {
     params ["_unit", "_killer", "_instigator", "_useEffects"];
 
     private _car = _unit getVariable ["assignedCar", objNull];
