@@ -173,4 +173,25 @@
 
     }] call zen_custom_modules_fnc_register;
 
+["Evening Light - Ambient", "Shoot Flare",
+    {
+      params ["_position", "_object"];
+      _position = ASLToAGL _position;
+
+       _position set [2, 250]; private _ammo = "rhsusf_40mm_clusterflare_red" createVehicle _position; 
+      _ammo setVelocity [random 1,random 1,1];
+
+    }] call zen_custom_modules_fnc_register;
+
     
+
+    
+
+["Evening Light - End", "Create Chair Circle",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+  _position = ASLToAGL _position;
+  ["Land_CampingChair_V1_F", _position, count (PlayableUnits + switchableUnits)] call grad_zeusmodules_fnc_createChairCircle;
+
+}] call zen_custom_modules_fnc_register;

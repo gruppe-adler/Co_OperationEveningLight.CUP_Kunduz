@@ -12,5 +12,9 @@ class grad_ambient{
            class createMusicCarrier;
            class soundSourceHelper;
            class createMosqueSinger;
+
+           class addApacheDestruction;
+           class createBloodEffect;
+           class hitPart;
         };
 };

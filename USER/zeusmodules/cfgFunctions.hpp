@@ -7,5 +7,7 @@ class grad_zeusmodules {
         class getReinforcementUnits;
         class reinforcements;
         class curatorShowFeedbackMessage;
+        class createChairCircle;
+        class getPosInCircle;
     };
 };

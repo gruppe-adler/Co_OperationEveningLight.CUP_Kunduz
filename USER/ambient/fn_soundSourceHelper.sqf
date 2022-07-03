@@ -27,15 +27,7 @@ _helper addEventHandler ["Deleted", {
   deleteVehicle (_entity getVariable ["soundSource", objNull]);
 }];
 
-_helper addMPEventHandler ["MPHit", {
-  (_this select 0) params ["_target", "_shooter", "_projectile", "_position", "_velocity", "_selection", "_ammo", "_vector", "_radius", "_surfaceType", "_isDirect"];
-  
-  private _pos = getPos _target;
-  deleteVehicle (_target getVariable ["soundSource", objNull]);
-
-  [_target] remoteExecCall ["grad_ambient_fnc_brokenRadio", 0];
-
-}];
+[_helper] remoteExec ["grad_ambient_fnc_hitPart", 0, true];
 
 if (!_createDummy) then {
     _helper addMPEventHandler ["MPKilled", {
