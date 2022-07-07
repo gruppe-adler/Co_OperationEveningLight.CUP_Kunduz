@@ -50,6 +50,8 @@ _lightpoint setLightAttenuation [100000, 2, 4, 4, 0, 9, 10];
      diwako_dui_main_toggled_off = false;
 
      20 fadeMusic 0;
+
+     introtexture setObjectTexture [0, ""];
     
 }, [_camera, _lightPoint], _duration] call CBA_fnc_waitAndeXecute;
 
