@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=10;
+	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=5288;
+		nextID=5295;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1139;
+		nextID=1176;
 	};
 	class Camera
 	{
-		pos[]={185.19502,76.662384,572.41974};
-		dir[]={-0.0570722,-0.56162125,0.8254261};
-		up[]={-0.038739633,0.82739437,0.56028521};
-		aside[]={0.99762058,1.2512828e-008,0.068978243};
+		pos[]={2845.5962,13.540474,1015.1931};
+		dir[]={0.19526836,-0.55191058,-0.81073725};
+		up[]={0.12923603,0.83389658,-0.53657609};
+		aside[]={-0.97221506,-1.648441e-007,-0.23416241};
 	};
 };
 binarizationWanted=0;
@@ -108,9 +108,7 @@ addons[]=
 	"A3_Rocks_F_Blunt",
 	"A3_Props_F_Orange_Humanitarian_Garbage",
 	"gm_structures_euro_80",
-	"CUP_Creatures_Military_USArmy",
 	"A3_Characters_F_Orange_Headgear",
-	"CUP_Creatures_Military_TakiInsurgents",
 	"rhsusf_c_weapons",
 	"A3_Modules_F",
 	"rhsusf_vehicles",
@@ -150,7 +148,6 @@ addons[]=
 	"Jbad_A_Minaret",
 	"CUP_CAStructures_E_HouseA_A_Mosque_small",
 	"Jbad_Minaret_Porto",
-	"CUP_AirVehciles_MH47E",
 	"UK3CB_Factions_MEI_O",
 	"grad_civs_transit"
 };
@@ -158,7 +155,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=92;
+		items=89;
 		class Item0
 		{
 			className="A3_Modules_F_Heli";
@@ -522,231 +519,216 @@ class AddonsMetaData
 		};
 		class Item54
 		{
-			className="CUP_Creatures_Military_USArmy";
-			name="CUP_Creatures_Military_USArmy";
-		};
-		class Item55
-		{
 			className="A3_Characters_F_Orange";
 			name="Arma 3 Orange - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item56
-		{
-			className="CUP_Creatures_Military_TakiInsurgents";
-			name="CUP_Creatures_Military_TakiInsurgents";
-		};
-		class Item57
+		class Item55
 		{
 			className="rhsusf_c_weapons";
 			name="RHSUSF Weapons & Accessories";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item58
+		class Item56
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item59
+		class Item57
 		{
 			className="rhsusf_vehicles";
 			name="rhsusf_vehicles";
 		};
-		class Item60
+		class Item58
 		{
 			className="UK3CB_Factions_Vehicles_LAV25";
 			name="3CB Factions - Vehicles";
 			author="3 Commando Brigade";
 			url="www.3commandobrigade.com";
 		};
-		class Item61
+		class Item59
 		{
 			className="UK3CB_Factions_Vehicles_MTVR";
 			name="3CB Factions - Vehicles";
 			author="3 Commando Brigade";
 			url="www.3commandobrigade.com";
 		};
-		class Item62
+		class Item60
 		{
 			className="jbad_opxbuildings2";
 			name="jbad_opxbuildings2";
 		};
-		class Item63
+		class Item61
 		{
 			className="grad_civs_common";
 			name="common";
 			author="AUTHOR";
 		};
-		class Item64
+		class Item62
 		{
 			className="UK3CB_Factions_TKM";
 			name="3CB Factions - TKM";
 			author="3 Commando Brigade";
 			url="www.3commandobrigade.com";
 		};
-		class Item65
+		class Item63
 		{
 			className="A3_Structures_F_Argo";
 			name="Arma 3 Malden - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item66
+		class Item64
 		{
 			className="CUP_CAMisc_E_WF";
 			name="CUP_CAMisc_E_WF";
 		};
-		class Item67
+		class Item65
 		{
 			className="CUP_Buildings_Config";
 			name="CUP_Buildings_Config";
 		};
-		class Item68
+		class Item66
 		{
 			className="CUP_CAStructures_E_Wall_Wall_L";
 			name="CUP_CAStructures_E_Wall_Wall_L";
 		};
-		class Item69
+		class Item67
 		{
 			className="A3_Characters_F_Enoch";
 			name="Arma 3 Contact Platform - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item70
+		class Item68
 		{
 			className="fsob_beards";
 			name="fsob_beards";
 		};
-		class Item71
+		class Item69
 		{
 			className="UK3CB_Factions_CHC";
 			name="3CB Factions - CHC";
 			author="3 Commando Brigade";
 			url="www.3commandobrigade.com";
 		};
-		class Item72
+		class Item70
 		{
 			className="ace_compat_rhs_usf3";
 			name="ACE3 - RHS USF Compatibility";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item73
+		class Item71
 		{
 			className="Jbad_misc_interior";
 			name="Jbad_misc_interior";
 		};
-		class Item74
+		class Item72
 		{
 			className="CUP_Editor_A2_Roads_Config";
 			name="CUP_Editor_A2_Roads_Config";
 		};
-		class Item75
+		class Item73
 		{
 			className="A3_Misc_F";
 			name="Arma 3 - 3D Aids and Helpers";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item76
+		class Item74
 		{
 			className="UK3CB_Factions_TKC";
 			name="3CB Factions - TKC";
 			author="3 Commando Brigade";
 			url="www.3commandobrigade.com";
 		};
-		class Item77
+		class Item75
 		{
 			className="A3_Signs_F";
 			name="Arma 3 - Signs";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item78
+		class Item76
 		{
 			className="jbad_opxmisc2_signs";
 			name="jbad_opxmisc2_signs";
 		};
-		class Item79
+		class Item77
 		{
 			className="A3_Structures_F_Exp_Civilian";
 			name="Arma 3 Apex - Civilian Buildings";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item80
+		class Item78
 		{
 			className="RHS_US_A2_AirImport";
 			name="RHSUSF A2 Air Ports";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item81
+		class Item79
 		{
 			className="UK3CB_Factions_Weapons";
 			name="3CB Factions - Weapons";
 			author="3 Commando Brigade";
 			url="www.3commandobrigade.com";
 		};
-		class Item82
+		class Item80
 		{
 			className="CUP_Editor_Buildings_Config";
 			name="CUP_Editor_Buildings_Config";
 		};
-		class Item83
+		class Item81
 		{
 			className="A3_Props_F_Exp";
 			name="Arma 3 Apex - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item84
+		class Item82
 		{
 			className="A3_Structures_F_Enoch_Military";
 			name="Arma 3 Contact Platform - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item85
+		class Item83
 		{
 			className="A3_Data_F";
 			name="Arma 3 - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item86
+		class Item84
 		{
 			className="Jbad_A_Minaret";
 			name="Jbad_A_Minaret";
 		};
-		class Item87
+		class Item85
 		{
 			className="CUP_CAStructures_E_HouseA_A_Mosque_small";
 			name="CUP_CAStructures_E_HouseA_A_Mosque_small";
 		};
-		class Item88
+		class Item86
 		{
 			className="Jbad_Minaret_Porto";
 			name="Jbad_Minaret_Porto";
 		};
-		class Item89
-		{
-			className="CUP_AirVehciles_MH47E";
-			name="CUP_AirVehciles_MH47E";
-		};
-		class Item90
+		class Item87
 		{
 			className="UK3CB_Factions_MEI";
 			name="3CB Factions - MEI";
 			author="3 Commando Brigade";
 			url="www.3commandobrigade.com";
 		};
-		class Item91
+		class Item88
 		{
 			className="grad_civs_transit";
 			name="transit";
@@ -761,7 +743,6 @@ dlcs[]=
 	"gm",
 	"Heli",
 	"Orange",
-	"CUP_Units",
 	"UK3CB_Factions_Vehicles",
 	"UK3CB_Factions",
 	"RHS_AFRF",
@@ -5951,7 +5932,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=301;
+		items=307;
 		class Item0
 		{
 			dataType="Layer";
@@ -21868,13 +21849,13 @@ class Mission
 					loiterAltitude=-3.4028235e+038;
 					position[]={2990.3601,7.5937037,1143.629};
 					completitionRadius=110;
-					type="lambs_danger_Garrison";
 					script="\z\lambs\addons\wp\scripts\fnc_wpGarrison.sqf";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=4194;
+					type="lambs_danger_Garrison";
 				};
 			};
 			class Attributes
@@ -21964,13 +21945,13 @@ class Mission
 					loiterAltitude=-3.4028235e+038;
 					position[]={3042.3035,6.553823,1108.1738};
 					completitionRadius=50;
-					type="lambs_danger_Garrison";
 					script="\z\lambs\addons\wp\scripts\fnc_wpGarrison.sqf";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=4200;
+					type="lambs_danger_Garrison";
 				};
 			};
 			class Attributes
@@ -22062,13 +22043,13 @@ class Mission
 					dataType="Waypoint";
 					loiterAltitude=-3.4028235e+038;
 					position[]={2998.491,7.2653174,1139.8199};
-					type="lambs_danger_Garrison";
 					script="\z\lambs\addons\wp\scripts\fnc_wpGarrison.sqf";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=4206;
+					type="lambs_danger_Garrison";
 				};
 			};
 			class Attributes
@@ -23267,13 +23248,13 @@ class Mission
 					dataType="Waypoint";
 					loiterAltitude=-3.4028235e+038;
 					position[]={3007.0823,7.0981622,2691.6157};
-					type="lambs_danger_Garrison";
 					script="\z\lambs\addons\wp\scripts\fnc_wpGarrison.sqf";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=4630;
+					type="lambs_danger_Garrison";
 					atlOffset=4.7683716e-007;
 				};
 			};
@@ -23364,13 +23345,13 @@ class Mission
 					dataType="Waypoint";
 					loiterAltitude=-3.4028235e+038;
 					position[]={2969.0291,9.2011528,2635.188};
-					type="lambs_danger_Garrison";
 					script="\z\lambs\addons\wp\scripts\fnc_wpGarrison.sqf";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=4636;
+					type="lambs_danger_Garrison";
 				};
 			};
 			class Attributes
@@ -23460,13 +23441,13 @@ class Mission
 					dataType="Waypoint";
 					loiterAltitude=-3.4028235e+038;
 					position[]={3045.0952,6.607717,2706.678};
-					type="lambs_danger_Garrison";
 					script="\z\lambs\addons\wp\scripts\fnc_wpGarrison.sqf";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=4642;
+					type="lambs_danger_Garrison";
 				};
 			};
 			class Attributes
@@ -23717,7 +23698,7 @@ class Mission
 					};
 					id=4683;
 					type="Land_Axe_F";
-					atlOffset=0.025921345;
+					atlOffset=-0.00035572052;
 				};
 				class Item13
 				{
@@ -23789,7 +23770,7 @@ class Mission
 				};
 			};
 			id=4688;
-			atlOffset=-0.15238905;
+			atlOffset=-0.1531167;
 		};
 		class Item233
 		{
@@ -26864,13 +26845,13 @@ class Mission
 					dataType="Waypoint";
 					loiterAltitude=-3.4028235e+038;
 					position[]={3025.9458,7.7386975,2584.4158};
-					type="lambs_danger_Patrol";
 					script="\z\lambs\addons\wp\scripts\fnc_wpPatrol.sqf";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=5175;
+					type="lambs_danger_Patrol";
 				};
 			};
 			class Attributes
@@ -26960,13 +26941,13 @@ class Mission
 					dataType="Waypoint";
 					loiterAltitude=-3.4028235e+038;
 					position[]={2962.7463,8.1318703,1100.137};
-					type="lambs_danger_Patrol";
 					script="\z\lambs\addons\wp\scripts\fnc_wpPatrol.sqf";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=5181;
+					type="lambs_danger_Patrol";
 				};
 			};
 			class Attributes
@@ -27056,13 +27037,13 @@ class Mission
 					dataType="Waypoint";
 					loiterAltitude=-3.4028235e+038;
 					position[]={4223.1719,9.6910934,153.07892};
-					type="lambs_danger_Patrol";
 					script="\z\lambs\addons\wp\scripts\fnc_wpPatrol.sqf";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=5187;
+					type="lambs_danger_Patrol";
 				};
 			};
 			class Attributes
@@ -27127,8 +27108,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2859.0737,5.8609452,1004.6682};
-				angles[]={0.02399601,0,6.2152901};
+				position[]={2857.1211,6.0314612,1002.376};
+				angles[]={0.023993526,0,0.0039967569};
 			};
 			side="Empty";
 			flags=4;
@@ -27137,6 +27118,7 @@ class Mission
 			};
 			id=5193;
 			type="Crater";
+			atlOffset=4.7683716e-007;
 		};
 		class Item288
 		{
@@ -27620,55 +27602,6 @@ class Mission
 		};
 		class Item294
 		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={2852.9795,5.7284851,1000.8611};
-				angles[]={0.20376202,1.016759,6.214716};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				health=0;
-				disableSimulation=1;
-			};
-			id=5279;
-			type="CUP_B_MH47E_USA";
-			atlOffset=-0.23513889;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[""FirstAidKit""],[4]],[[],[]],[[""ToolKit"",""ItemGPS"",""ItemRadio""],[1,1,1]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=2;
-			};
-		};
-		class Item295
-		{
 			dataType="Group";
 			side="East";
 			class Entities
@@ -27680,7 +27613,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3066.9326,10.113482,1132.4216};
-						angles[]={0,2.7968574,-0};
+						angles[]={0,2.7968574,0};
 					};
 					side="East";
 					flags=2;
@@ -27689,7 +27622,7 @@ class Mission
 					};
 					id=5283;
 					type="UK3CB_MEI_O_RIF_1";
-					atlOffset=2.9617372;
+					atlOffset=2.9617381;
 				};
 			};
 			class Attributes
@@ -27722,13 +27655,13 @@ class Mission
 			id=5281;
 			atlOffset=2.9693365;
 		};
-		class Item296
+		class Item295
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={3066.9329,10.112373,1132.3716};
-				angles[]={0,2.7968574,-0};
+				angles[]={0,2.7968574,0};
 			};
 			side="East";
 			flags=2;
@@ -27739,7 +27672,7 @@ class Mission
 			type="UK3CB_MEI_O_PKM_Low";
 			atlOffset=2.9693365;
 		};
-		class Item297
+		class Item296
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -27750,7 +27683,7 @@ class Mission
 			type="grad_civs_transit_transitSink";
 			atlOffset=-1.6486588;
 		};
-		class Item298
+		class Item297
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -27790,7 +27723,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item299
+		class Item298
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -27800,7 +27733,7 @@ class Mission
 			id=5286;
 			type="grad_civs_transit_transitSink";
 		};
-		class Item300
+		class Item299
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -27839,6 +27772,124 @@ class Mission
 				};
 				nAttributes=2;
 			};
+		};
+		class Item300
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2849.8821,7.8772697,1001.0957};
+				angles[]={0.023993526,4.2999811,0.0039967569};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=5288;
+			type="BlackhawkWreck";
+			atlOffset=0.00037431717;
+		};
+		class Item301
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2851.2188,6.1145892,1005.4286};
+				angles[]={0.023993526,0.52304983,0.0039967569};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=5289;
+			type="Land_DisturbedSoil_02_decal_F";
+			atlOffset=4.7683716e-007;
+		};
+		class Item302
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2846.4885,6.0359893,1002.9368};
+				angles[]={0.019999012,0.14253056,6.2192721};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=5290;
+			type="Land_DisturbedSoil_02_decal_F";
+		};
+		class Item303
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2843.6025,6.1298547,998.70001};
+				angles[]={0.019996032,5.073926,6.2232571};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=5291;
+			type="Land_DisturbedSoil_02_decal_F";
+			atlOffset=1.1444092e-005;
+		};
+		class Item304
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2856.085,6.1503596,997.28503};
+				angles[]={0.027993103,3.3780575,0.0039967569};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=5292;
+			type="Land_DisturbedSoil_02_decal_F";
+			atlOffset=2.3841858e-006;
+		};
+		class Item305
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2849.4045,6.1922498,993.77533};
+				angles[]={0.023993526,3.3780575,0.011995304};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=5293;
+			type="Land_DisturbedSoil_02_decal_F";
+			atlOffset=2.3841858e-006;
+		};
+		class Item306
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2843.7,6.2124329,994.39886};
+				angles[]={0.02399601,4.9177637,6.2232571};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=5294;
+			type="Land_DisturbedSoil_02_decal_F";
+			atlOffset=3.3378601e-006;
 		};
 	};
 	class Connections
