@@ -387,3 +387,13 @@
   ["Land_CampingChair_V1_F", _position, count (PlayableUnits + switchableUnits)] call grad_zeusmodules_fnc_createChairCircle;
 
 }] call zen_custom_modules_fnc_register;
+
+["Evening Light - FX", "Create Monsoon",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+  [100,600,true,true,true,true,true,1] execvm "USER\AL_monsoon\al_monsoon.sqf";
+
+}] call zen_custom_modules_fnc_register;
+
+
