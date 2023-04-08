@@ -1,5 +1,7 @@
 params ["_car"];
 
+if (!local _car) exitWith {};
+
 private _position = position _car;
 _car setDamage [1, false];
 private _explosion = createVehicle ["ammo_ShipCannon_120mm_HE", _position, [], 0, "CAN_COLLIDE"];
