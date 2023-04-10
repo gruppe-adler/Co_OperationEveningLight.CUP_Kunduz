@@ -392,8 +392,18 @@
 {
   params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
-  [100,600,true,true,true,true,true,1] execvm "USER\AL_monsoon\al_monsoon.sqf";
+  [[180], "USER\AL_monsoon\rain_nomi.sqf"] remoteExec ["BIS_fnc_execVM", 2];
 
 }] call zen_custom_modules_fnc_register;
+
+
+["Evening Light - FX", "End Monsoon",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+  grad_rain_active = false; publicVariable "grad_rain_active";
+
+}] call zen_custom_modules_fnc_register;
+
 
 

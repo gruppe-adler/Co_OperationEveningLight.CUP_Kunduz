@@ -56,20 +56,22 @@ grad_rain_fnc_mainLoop = {
 	private _startTime = CBA_missionTime;
 	private _fadeTime = 300;
 
-	_fadeTime setFog 1;
-	_fadeTime setRain 1;
-	_fadeTime setLightnings 1;
-
+	
+	_fadeTime setOvercast 1;
 	_fadeTime setWindStr 5;
 	_fadeTime setWindDir _direction;
-
+	_fadeTime setRain 1;
 	
-	setTimeMultiplier 120;
+	setTimeMultiplier 60;
 
-	diag_log "setting time multiplier to 120 to raise tides";
+	diag_log "setting time multiplier to 60 to raise tides";
 
 	[	{ rain > 0.3 },
-		{ call grad_rain_fnc_raiseWater; [] remoteExec ["grad_rain_fnc_initLocalEffects"]; }
+		{ 
+			call grad_rain_fnc_raiseWater;
+			_this setLightnings 1;
+		[] remoteExec ["grad_rain_fnc_initLocalEffects"]; },
+		_fadeTime
 	] call CBA_fnc_waitUntilAndExecute;
 
 	[{
@@ -84,22 +86,27 @@ grad_rain_fnc_mainLoop = {
 		params ["_args", "_handle"];
 		_args params ["_startTime", "_fadeTime", "_grad_rain_originalValues"];
 
+		// tie fog to rain value, as rain is better managable
+		private _fog = rain;
+		1 setFog (_fog min 0.7);
+
 		if (!grad_rain_active) exitWith {
 			[_handle] call CBA_fnc_removePerFrameHandler;
 
 			// restore original values after rain
 			_grad_rain_originalValues params ["_overcast", "_fog", "_rain", "_lightnings", "_wind"];
 
-			_fadeTime setFog _fog;
-			_fadeTime setRain 0;
-			_fadeTime setLightnings _lightnings;
+			_fadeTime/60 setFog _fog;
+			_fadeTime/60 setRain 0;
+			_fadeTime/60 setLightnings _lightnings;
 			setWind [_wind select 0, _wind select 1, true];
-			_fadeTime setOvercast 0;
+			_fadeTime/60 setOvercast 0.4;
 
 		};
 
 		if (grad_rain_nextThunder < CBA_missionTime) then {
-			grad_rain_nextThunder = CBA_missionTime + random 20;
+			private _intesity = linearConversion [0, 1, rain, 60, 10, true]; // 60 seconds for no rain, 10 seconds for full rain
+			grad_rain_nextThunder = CBA_missionTime + random _intensity + random _intensity;
 			private _randomPlayer = selectRandom (playableUnits + switchableUnits);
 			private _randomPos = _randomPlayer getRelPos [700+random 1300, 360];
 
@@ -112,6 +119,7 @@ grad_rain_fnc_mainLoop = {
 			};
 		};
 
+		/*
 		if (grad_rain_nextBlow < CBA_missionTime) then {
 			grad_rain_nextBlow = CBA_missionTime + random 60 + random 120;
 
@@ -122,8 +130,11 @@ grad_rain_fnc_mainLoop = {
 				if((_x isKindOf "LandVehicle") or (_x isKindOf "Man") or (_x isKindOf "Air")) then {_objectsFound pushBack _x};
 			} foreach _objectCandidates;
 			
-			if (count _objectsFound > 0) then { [selectRandom _objectsFound] call grad_rain_fnc_blowObject; };
+			if (rain > .3) then {
+				if (count _objectsFound > 0) then { [selectRandom _objectsFound] call grad_rain_fnc_blowObject; };
+			};
 		};
+		*/
 
 	}, 1, [_startTime, _fadeTime, _grad_rain_originalValues]] call CBA_fnc_addPerFrameHandler;
 };
@@ -142,6 +153,32 @@ grad_rain_fnc_raiseWater = {
 grad_rain_fnc_streamfX = {
 	private _streamHelper = [worldsize/2,worldsize/2] nearObjects ["Sign_Arrow_Direction_F", worldsize/2];
 	{ 
+		private _type = selectRandom ["Land_Garbage_square5_F", "MedicalGarbage_01_5x5_v1_F"];
+		grad_debris = true;
+
+		private _posX = getPos _x select 0;
+		private _posY = getPos _x select 1;
+
+		private _debris = _type createVehicleLocal [_posX, _posY, 0];
+		_debris enableSimulation false;
+		_debris setPosASL [_posX, _posY, getTerrainInfo#4 ]; // necessary
+		_debris setDir (random 360);
+
+		[{
+			params ["_args", "_handle"];
+			_args params ["_debris", "_posX", "_posY"];
+
+			if (!grad_debris) exitWith {
+				[_handle] call CBA_fnc_removePerFrameHandler;
+				deleteVehicle _debris;
+			};
+
+			// slowly rotate to give at least some visual eye candy
+			_debris setPosASL [_posX, _posY, getTerrainInfo#4];
+			_debris setDir ((getDir _debris) + 0.05);
+		}, 0.01, [_debris, _posX, _posY]] call CBA_fnc_addPerFrameHandler;
+
+		/*
 		private _pos = getPos _x;
 		private _dir = getDir _x;
 		private _pressure = 5;
@@ -157,6 +194,7 @@ grad_rain_fnc_streamfX = {
 		_waterFX2 setParticleRandom _part_def # 1;
 		_waterFX2 setParticleParams [[ "\A3\data_f\ParticleEffects\Universal\Refract",1,0,1],"","Billboard",1,3,[0,0,0],[_flow select 0,_flow select 1,7],15,1050,7.9,0,[_start_size,_end_size],[[0,0,0,0],[0.80,0.90,1,0.5],[0,0,0,0]],[1],0,0,"","",_x];
 		_waterFX2 setDropInterval 0.05;
+		*/
 	
 		// [{ !grad_rain_active }, { params ["_waterFX1", "_waterFX2", "_waterFX3"]; { deleteVehicle _x; } forEach [_waterFX1, _waterFX2, _waterFX3]; }, [_waterFX1, _waterFX2, _waterFX3]] call CBA_fnc_waitUntilAndExecute;
 
@@ -168,7 +206,7 @@ grad_rain_fnc_streamfX = {
 grad_rain_fnc_initLocalEffects = {
 	[] call grad_rain_fnc_loopLocal;
 	[] call grad_rain_fnc_drops;
-	// [] call grad_rain_fnc_streamfX;
+	[] call grad_rain_fnc_streamfX;
 	[true, true] call grad_rain_fnc_debris;
 };
 
@@ -206,9 +244,19 @@ grad_rain_fnc_blowObject = {
 	params ["_object"];
 
 	private _sound = selectRandom ["rafala_1","rafala_2","rafala_4_dr","rafala_5_st","rafala_6","rafala_7","rafala_8","rafala_9"];
-	[_sound] remoteExec ["playSound"];
-	[] remoteExec ["grad_rain_fnc_camShake"];
+	
 
+	private _playersNear = [];
+
+	{
+		if (_object distance _x < 100) then {
+			if (isNull objectParent _x) then {
+				[_sound] remoteExec ["playSound", _x];
+				[] remoteExec ["grad_rain_fnc_camShake", _x];
+			};
+		};
+	} forEach (switchableUnits + playableUnits);
+	
 	[_object] spawn {
 		params ["_object"];
 
@@ -247,7 +295,8 @@ grad_rain_fnc_drops = {
 		_args params ["_helperSphere", "_rain_drops_eff"];
 
 		_helperSphere setposATL positionCameraToWorld [0,2,20];
-		_rain_drops_eff setParticleParams [["\A3\Data_F_Mark\ParticleEffects\Universal\waterBallonExplode_01",4,0,16,0],"","Billboard",1,0.4,[0,0,30],[0,0,1],0,18,7,0,[0.05,0.6*rain],[[0.5,0.5,0.5,1],[0.5,0.5,0.5,1]],[1.5],1,0,"","", _helperSphere,0,true];  
+		_rain_drops_eff setParticleParams [["\A3\Data_F_Mark\ParticleEffects\Universal\waterBallonExplode_01",4,0,16,0],"","Billboard",1,0.4,[0,0,30],[0,0,1],0,18,7,0,[0.05,0.5*rain],[[0.5,0.5,0.5,1],[0.5,0.5,0.5,1]],[1.5],1,0,"","", _helperSphere,0,true]; 
+		_rain_drops_eff setDropInterval (linearConversion [0, 1, rain, 0.002, 0.0005]);
 
 		if (!grad_rain_active) exitWith {
 			[_handle] call CBA_fnc_removePerFrameHandler;
@@ -308,7 +357,7 @@ grad_rain_fnc_debris = {
 		if (isNull _leavesEffect && isNull _rainEffect) exitWith {
 			[_handle] call CBA_fnc_removePerFrameHandler;
 		};
-	}, 1, []] call CBA_fnc_addPerFrameHandler;
+	}, 1, [_leavesEffect, _rainEffect]] call CBA_fnc_addPerFrameHandler;
 
 	// remove effect after rain
 	[{
@@ -329,8 +378,8 @@ grad_rain_fnc_debris = {
 
 // local FX
 grad_rain_fnc_camShake = {
-	enableCamShake true;
-	addCamShake [1,27,17];
+		enableCamShake true;
+		addCamShake [1,27,17];
 };
 
 
