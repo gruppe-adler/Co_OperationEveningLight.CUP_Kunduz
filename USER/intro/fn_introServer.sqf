@@ -1,6 +1,6 @@
 private _duration = 45;
 
-skiptime 3;
+// skiptime 3;
 
 introTexture attachTo [introtextureHolder]; introTexture setObjectScale 10;
 
@@ -21,6 +21,6 @@ _heli setSpeedMode "LIMITED";
     params ["_heli"];
 
     deleteVehicle _heli;
-    skiptime -3;
+    // skiptime -3;
     
 }, [_heli], _duration] call CBA_fnc_waitAndeXecute;

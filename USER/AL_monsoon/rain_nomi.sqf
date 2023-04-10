@@ -4,14 +4,14 @@
 
 */
 
-// [180, 120] execVM "USER\AL_monsoon\rain_nomi.sqf";
+// [180] execVM "USER\AL_monsoon\rain_nomi.sqf";
 // direction, duration
 
-params ["_direction", "_duration"];
+params ["_direction"];
 
-grad_rain_coefficient = 0; // strength of effect control
 grad_rain_nextThunder = 30;
 grad_rain_nextBlow = 60;
+grad_rain_waterHeight = 3.2;
 
 grad_rain_active = true;
 publicVariable "grad_rain_active";
@@ -47,15 +47,14 @@ publicVariable "grad_rain_active";
 // forceWeatherChange; 
 
 grad_rain_fnc_mainLoop = {
-	params ["_direction", "_duration"];
+	params ["_direction"];
 
 	private _grad_rain_originalValues = [
 		overcast, fog, rain, lightnings, wind
 	];
 
 	private _startTime = CBA_missionTime;
-	private _fadeTime = 10;
-	private _endTime = CBA_missionTime + _duration + _fadeTime;
+	private _fadeTime = 300;
 
 	_fadeTime setFog 1;
 	_fadeTime setRain 1;
@@ -64,40 +63,39 @@ grad_rain_fnc_mainLoop = {
 	_fadeTime setWindStr 5;
 	_fadeTime setWindDir _direction;
 
-	[_fadeTime] spawn {
-		params ["_fadeTime"];
-		for "_i" from 1 to _fadeTime do {
-			[_fadeTime/1] call BIS_fnc_setOvercast;
-			sleep 1;
-		};
-		[] remoteExec ["grad_rain_fnc_initLocalEffects"];
-	};
+	
+	setTimeMultiplier 120;
+
+	diag_log "setting time multiplier to 120 to raise tides";
+
+	[	{ rain > 0.3 },
+		{ call grad_rain_fnc_raiseWater; [] remoteExec ["grad_rain_fnc_initLocalEffects"]; }
+	] call CBA_fnc_waitUntilAndExecute;
+
+	[{
+		getTerrainInfo#4 > 2.5
+	}, {
+		setTimeMultiplier 1;
+		diag_log "setting time multiplier to 1, high tide reached";
+	}] call CBA_fnc_waitUntilAndExecute;
+
 
 	[{
 		params ["_args", "_handle"];
-		_args params ["_startTime", "_endTime", "_fadeTime", "_grad_rain_originalValues"];
+		_args params ["_startTime", "_fadeTime", "_grad_rain_originalValues"];
 
-		if (CBA_missionTime > _endTime) exitWith {
+		if (!grad_rain_active) exitWith {
 			[_handle] call CBA_fnc_removePerFrameHandler;
 
 			// restore original values after rain
 			_grad_rain_originalValues params ["_overcast", "_fog", "_rain", "_lightnings", "_wind"];
 
 			_fadeTime setFog _fog;
-			_fadeTime setRain _rain;
+			_fadeTime setRain 0;
 			_fadeTime setLightnings _lightnings;
 			setWind [_wind select 0, _wind select 1, true];
+			_fadeTime setOvercast 0;
 
-
-			[{ grad_rain_active = false; publicVariable "grad_rain_active"; }, [], _fadeTime] call CBA_fnc_waitAndExecute;
-
-			[_fadeTime] spawn {
-				params ["_fadeTime"];
-				for "_i" from _fadeTime to 1 do {
-					[_fadeTime/1] call BIS_fnc_setOvercast;
-					sleep 1;
-				};
-			};
 		};
 
 		if (grad_rain_nextThunder < CBA_missionTime) then {
@@ -108,7 +106,10 @@ grad_rain_fnc_mainLoop = {
 			private _sound = ["01_far","02_far","03_far","04_far","05_far","06_far","07_far","08_far","09_far","10_far","11_far","12_far","13_far","14_far","16_far","17_far","18_far","19_far","20_far","21_far","22_far","23_far","24_far","25_far","26_far","27_far"];
 			private _flickerCount = floor (1+random 3);
 			private _type = selectRandom ["light","light","light","light","sound","sound_light"];
-			[_randomPos, _type, _flickerCount, _sound] remoteExec ["grad_rain_fnc_thunder"];
+
+			if (rain > 0.3) then {
+				[_randomPos, _type, _flickerCount, _sound] remoteExec ["grad_rain_fnc_thunder"];
+			};
 		};
 
 		if (grad_rain_nextBlow < CBA_missionTime) then {
@@ -124,7 +125,42 @@ grad_rain_fnc_mainLoop = {
 			if (count _objectsFound > 0) then { [selectRandom _objectsFound] call grad_rain_fnc_blowObject; };
 		};
 
-	}, 1, [_startTime, _endTime, _fadeTime, _grad_rain_originalValues]] call CBA_fnc_addPerFrameHandler;
+	}, 1, [_startTime, _fadeTime, _grad_rain_originalValues]] call CBA_fnc_addPerFrameHandler;
+};
+
+
+grad_rain_fnc_raiseWater = {
+
+	private _bridges = [worldsize/2,worldsize/2] nearObjects ["Jbad_Bridge_Wood_long", worldsize/2];
+	{ deleteVehicle _x; } forEach _bridges;
+
+	private _planks = [worldsize/2,worldsize/2] nearObjects ["Land_Plank_01_8m_F", worldsize/2];
+	{ deleteVehicle _x; } forEach _planks;
+	
+};
+
+grad_rain_fnc_streamfX = {
+	private _streamHelper = [worldsize/2,worldsize/2] nearObjects ["Sign_Arrow_Direction_F", worldsize/2];
+	{ 
+		private _pos = getPos _x;
+		private _dir = getDir _x;
+		private _pressure = 5;
+		private _start_size = 3;
+		private _end_size = 3;
+		private _part_def = [[0,[0,0,0]],[0.5,[0.1,0.1,0.1],[0,0,0],5,0.1,[0,0,0,0],0.01,0,0]];
+
+		private _flow = (getposasl _x vectorFromTo (_x getRelPos [10,0])) vectorMultiply _pressure;
+
+		private _waterFX2 = "#particlesource" createVehicleLocal (_pos);
+		_waterFX2 setPosASL [_pos#0, _pos#1, grad_rain_waterHeight];
+		_waterFX2 setParticleCircle _part_def # 0;
+		_waterFX2 setParticleRandom _part_def # 1;
+		_waterFX2 setParticleParams [[ "\A3\data_f\ParticleEffects\Universal\Refract",1,0,1],"","Billboard",1,3,[0,0,0],[_flow select 0,_flow select 1,7],15,1050,7.9,0,[_start_size,_end_size],[[0,0,0,0],[0.80,0.90,1,0.5],[0,0,0,0]],[1],0,0,"","",_x];
+		_waterFX2 setDropInterval 0.05;
+	
+		// [{ !grad_rain_active }, { params ["_waterFX1", "_waterFX2", "_waterFX3"]; { deleteVehicle _x; } forEach [_waterFX1, _waterFX2, _waterFX3]; }, [_waterFX1, _waterFX2, _waterFX3]] call CBA_fnc_waitUntilAndExecute;
+
+	} forEach _streamHelper;
 };
 
 
@@ -132,8 +168,12 @@ grad_rain_fnc_mainLoop = {
 grad_rain_fnc_initLocalEffects = {
 	[] call grad_rain_fnc_loopLocal;
 	[] call grad_rain_fnc_drops;
+	// [] call grad_rain_fnc_streamfX;
 	[true, true] call grad_rain_fnc_debris;
 };
+
+
+
 
 
 // local FX
@@ -159,25 +199,6 @@ grad_rain_fnc_loopLocal = {
 
 
 
-// server
-grad_rain_fnc_setOverCast = {
-
-	params ["_overCast", "_fadeTime"];
-
-	if (!canSuspend) exitWith { [_overCast, _fadeTime] spawn grad_rain_fnc_setOvercast; };
-	
-	for "_i" from 1 to _fadeTime do {
-
-		skipTime -24; 
-		86400 setOvercast _overCast;
-		skipTime 24; 
-		0 = [] spawn { 
-			sleep 0.1; 
-			simulWeatherSync; 
-		};
-		sleep 1;
-	};
-};
 
 
 // global FX 
@@ -218,7 +239,7 @@ grad_rain_fnc_drops = {
 	private _rain_drops_eff = "#particlesource" createVehicleLocal position player;
 	_rain_drops_eff setParticleCircle [10, [0, 0, 0]]; 
 	_rain_drops_eff setParticleRandom [0.2,[20,20,0],[0,0,0.5],13,0.5,[0,0,0,0.5],1,0]; 
-	_rain_drops_eff setParticleParams [["\A3\Data_F_Mark\ParticleEffects\Universal\waterBallonExplode_01",4,0,16,0],"","Billboard",1,0.4,[0,0,30],[0,0,1],0,18,7,0,[0.05,0.6],[[0.5,0.5,0.5,1],[0.5,0.5,0.5,1]],[1.5],1,0,"","", _helperSphere,0,true];  
+	_rain_drops_eff setParticleParams [["\A3\Data_F_Mark\ParticleEffects\Universal\waterBallonExplode_01",4,0,16,0],"","Billboard",1,0.4,[0,0,30],[0,0,1],0,18,7,0,[0.05,0.6*rain],[[0.5,0.5,0.5,1],[0.5,0.5,0.5,1]],[1.5],1,0,"","", _helperSphere,0,true];  
 	_rain_drops_eff setDropInterval 0.002;
 
 	[{
@@ -226,6 +247,7 @@ grad_rain_fnc_drops = {
 		_args params ["_helperSphere", "_rain_drops_eff"];
 
 		_helperSphere setposATL positionCameraToWorld [0,2,20];
+		_rain_drops_eff setParticleParams [["\A3\Data_F_Mark\ParticleEffects\Universal\waterBallonExplode_01",4,0,16,0],"","Billboard",1,0.4,[0,0,30],[0,0,1],0,18,7,0,[0.05,0.6*rain],[[0.5,0.5,0.5,1],[0.5,0.5,0.5,1]],[1.5],1,0,"","", _helperSphere,0,true];  
 
 		if (!grad_rain_active) exitWith {
 			[_handle] call CBA_fnc_removePerFrameHandler;
@@ -374,4 +396,6 @@ grad_rain_fnc_thunder = {
 	};
 };
 
-[_direction, _duration] call grad_rain_fnc_mainLoop;
+if (isServer) then {
+	[_direction] call grad_rain_fnc_mainLoop;
+};
